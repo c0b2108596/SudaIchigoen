@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('sns', function (Blueprint $table) {
             $table->id();
-            $table->string("sns_name", 30);
-            $table->string("sns_link", 200);
+            $table->string("name", 30);
+            $table->string("link", 200);
         });
     }
 

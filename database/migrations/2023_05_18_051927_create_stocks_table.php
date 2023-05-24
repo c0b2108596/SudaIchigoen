@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("cart_id")->constrained();
-            $table->string("stock_name", 30);
-            $table->string("stock_body", 200);
-            $table->integer("stock_num");
-            $table->integer("stock_price");
+            $table->string("name", 30);
+            $table->string("body", 200);
+            $table->integer("num");
+            $table->integer("price");
             $table->timestamps();
             $table->softDeletes();
         });

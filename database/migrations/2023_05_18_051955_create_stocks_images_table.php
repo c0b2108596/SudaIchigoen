@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('stocks_images', function (Blueprint $table) {
             $table->id();
             $table->foreignId("stock_id")->constrained();
-            $table->string("stock_img_name", 30);
-            $table->string("stock_img_url", 200);
+            $table->string("name", 30);
+            $table->string("url", 200);
         });
     }
 
