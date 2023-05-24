@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('forms', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->constrained();
-            $table->string("form_title", 30);
-            $table->string("form_body", 500);
+            $table->string("title", 30);
+            $table->string("body", 500);
             $table->timestamps();
         });
     }
