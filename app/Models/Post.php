@@ -28,4 +28,9 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
     
+    public function post_image()
+    {
+        return $this->hasMany(PostImage::class);
+    }
+    
 }

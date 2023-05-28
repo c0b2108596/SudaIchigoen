@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stocks_images', function (Blueprint $table) {
+        Schema::create('stock_images', function (Blueprint $table) {
             $table->id();
             $table->foreignId("stock_id")->constrained();
-            $table->string("name", 30);
             $table->string("url", 200);
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stocks_images');
+        Schema::dropIfExists('stock_images');
     }
 };

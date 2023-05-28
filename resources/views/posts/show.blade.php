@@ -21,6 +21,11 @@
                     <h3>本文</h3>
                     <p>{{ $post->body }}</p>    
                 </div>
+                <div>
+                    @foreach($post_image as $post_img)
+                        <img src="{{ $post_img->url }}" alt="画像が読み込めません"/>
+                    @endforeach
+                </div>
             </div>
             </div>
             <div calss="edit">
