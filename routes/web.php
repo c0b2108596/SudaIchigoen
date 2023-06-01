@@ -25,9 +25,9 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
 
 Route::controller(FormController::class)->middleware(["auth"])->group(function(){
-    Route::get('/forms/index', 'index')->name('form_index');
     Route::get('/forms/form', 'form')->name('form');
     Route::post('/forms', 'store')->name('store');
+    Route::get('/forms/{index}', 'index')->name('form_index');
     Route::get('/forms/{form}', "show")->name('form_show');
 });
 

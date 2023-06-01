@@ -14,6 +14,7 @@
                 @foreach ($forms as $form)
                     <div class="form">
                         <h2 class='title'>{{ $form->title }}</h2>
+                        <p class="name">{{ $form->user->name }}</p>
                         <p class='body'>{{ $form->body }}</p>
                     </div>
                 @endforeach
