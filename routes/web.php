@@ -26,9 +26,9 @@ Route::get('/categories/{category}', [CategoryController::class,'index'])->middl
 
 Route::controller(FormController::class)->middleware(["auth"])->group(function(){
     Route::get('/forms/form', 'form')->name('form');
+    Route::get('/forms/show', "show")->name('show');
     Route::post('/forms', 'store')->name('store');
     Route::get('/forms/{index}', 'index')->name('form_index');
-    Route::get('/forms/{form}', "show")->name('form_show');
 });
 
 Route::middleware('auth')->group(function () {

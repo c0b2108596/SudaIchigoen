@@ -19,7 +19,8 @@ class FormController extends Controller
         $input = $request['form'];
         $input += ['user_id' => $request->user()->id];
         $form->fill($input)->save();
-        return redirect('/forms/' . $form->id);
+        
+        return redirect('/forms/show');
     }
     
     public function show(Form $form)

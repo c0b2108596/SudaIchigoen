@@ -9,7 +9,8 @@
             <title>お問い合わせフォーム</title>
         </head>
         <body>
-            <h1>test</h1>
+            <h1>お問い合わせが送信されました。</h1>
+            <a href="/forms/form">戻る</a>
         </body>
     </html>
 </x-app-layout>
