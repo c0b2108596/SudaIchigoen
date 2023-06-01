@@ -3,11 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function (){
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -22,6 +23,13 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
+
+Route::controller(FormController::class)->middleware(["auth"])->group(function(){
+    Route::get('/forms/index', 'index')->name('form_index');
+    Route::get('/forms/form', 'form')->name('form');
+    Route::post('/forms', 'store')->name('store');
+    Route::get('/forms/{form}', "show")->name('form_show');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

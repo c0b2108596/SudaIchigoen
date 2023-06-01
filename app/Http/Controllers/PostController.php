@@ -13,17 +13,14 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
     
     public function show(Post $post, PostImage $post_image)
     {
         $image_get = PostImage::where('post_id', '=', $post->id)->get();
-        //return view('posts/show')->with(['post' => $post, 'post_image' => $post_image->first()]);
-        //dd(with(['post' => $post, 'post_image' => $image_get]));
-        return view('posts/show')->with(['post' => $post, 'post_image' => $image_get]);
         
+        return view('posts/show')->with(['post' => $post, 'post_image' => $image_get]);
     }
 
     public function create(Category $category)
@@ -45,9 +42,6 @@ class PostController extends Controller
             $post_image->post_id = $post->id;
             $post_image->url = $image_url;
             $post_image->save();
-            //dd($post_image);
-       //dd($image_url);
-  
         } 
         return redirect('/posts/' . $post->id);
     }
