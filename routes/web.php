@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StockController;
 
 
 
@@ -29,6 +30,12 @@ Route::controller(FormController::class)->middleware(["auth"])->group(function()
     Route::get('/forms/show', "show")->name('show');
     Route::post('/forms', 'store')->name('store');
     Route::get('/forms/{index}', 'index')->name('form_index');
+});
+
+Route::controller(StockController::class)->middleware(["auth"])->group(function(){
+    Route::get('/stocks/stock', 'stock')->name('stock');
+    Route::post('/stocks', "store")->name("stock_store");
+    Route::get('/stocks/create', 'create')->name('stock_create');
 });
 
 Route::middleware('auth')->group(function () {
