@@ -28,6 +28,11 @@
                     <h2>価格</h2>
                     <p>{{ $stock->price }}</p>
                 </div>
+                <div class="contet_img">
+                    @foreach($stock_image as $stock_img)
+                        <img src="{{ $stock_img->url }}" alt="画像が読み込めません"/>
+                    @endforeach
+                </div>
             </div>
             <div calss="edit">
                 <a href="/stocks/{{ $stock->id }}/edit">編集</a>

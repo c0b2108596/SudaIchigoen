@@ -10,7 +10,7 @@
         </head>
         <body>
             <h1>Blog Name</h1>
-            <form action="/stocks" method="POST">
+            <form action="/stocks" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="name">
                     <h2>商品名</h2>
@@ -32,11 +32,14 @@
                     <input type="text" name="stock[price]" placeholder="価格"/ value="{{ old('stock.price') }}">
                     <p class="price_error" style="color:red">{{ $errors->first('stock.price') }}</p>
                 </div>
+                <div class="image">
+                    <input type="file" name="image[]" multiple>
+                </div>
                 <input type="submit" value="保存"/>
             </form>
-            <div class="footer">
-                <a href="/">戻る</a>
-            </div>
         </body>
+        <div class="footer">
+                <a href="/">戻る</a>
+        </div>
     </html>
 </x-app-layout>

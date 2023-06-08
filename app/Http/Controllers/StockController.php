@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Stock;
 use App\Http\Requests\StockRequest;
+use Cloudinary;
+use App\Models\StockImage;
 
 class StockController extends Controller
 {
@@ -19,10 +21,20 @@ class StockController extends Controller
     }
     
     public function store(StockRequest $request, Stock $stock)
-    {
-        $input = $request['stock'];
-        $stock->fill($input)->save();
-        return redirect('/stocks/stock');
+    {  
+        $images = $request->file('image');
+        $input_stock = $request['stock'];
+        $stock->fill($input_stock)->save();
+        
+        foreach($images as $image)
+        {   
+            $stock_url = Cloudinary::upload($image->getRealpath())->getSecurePath();
+            $stock_image = New StockImage();
+            $stock_image->stock_id = $stock->id;
+            $stock_image->url = $stock_url;
+            $stock_image->save();
+        } 
+        return redirect('/stocks/' . $stock->id);
     }
     
     public function edit(Stock $stock)
@@ -38,9 +50,11 @@ class StockController extends Controller
         return redirect('/stocks/' . $stock->id);
     }
     
-    public function show(Stock $stock)
+    public function show(Stock $stock, StockImage $stockimage)
     {
-        return view('stocks.show')->with(['stock' => $stock]);
+        $stock_get = StockImage::where('stock_id', '=', $stock->id)->get();
+        
+        return view('stocks.show')->with(['stock' => $stock, "stock_image" => $stock_get]);
     }
     
     public function delete(Stock $stock)
@@ -48,4 +62,5 @@ class StockController extends Controller
         $stock->delete();
         return redirect('/stocks/stock');
     }
+    
 }
