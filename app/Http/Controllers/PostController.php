@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Http\Requests\PostRequest; // useする
-use Illuminate\Http\Request;
 use App\Models\Category;
 use Cloudinary;
 use App\Models\PostImage;

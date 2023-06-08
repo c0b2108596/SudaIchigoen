@@ -36,7 +36,7 @@
             }
             </script>
             <p>ログインユーザー：{{ Auth::user()->name }}</p>
-            </body>
+        </body>
         <div class="footer">
                 <a href="/forms/form">お問い合わせ</a>
         </div>

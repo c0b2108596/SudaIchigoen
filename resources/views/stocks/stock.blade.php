@@ -13,17 +13,33 @@
             <dvi class="stocks">
                 @foreach ($stocks as $stock)
                     <div class="sotck">
-                        <h2 class="title">{{ $stock->title }}</h2>
-                        <p class="body">{{ $stock->body  }}</p>
-                        <p class="num">{{ $stock->num  }}</p>
-                        <p class="price">{{ $stock->price  }}</p>
+                        <h2 class="name">
+                            <a href="/stocks/{{ $stock->id }}">{{ $stock->name }}</a>
+                        </h2>
+                        <p class="body">{{ $stock->body }}</p>
+                        <p class="num">{{ $stock->num }}</p>
+                        <p class="price">{{ $stock->price }}</p>
                     </div>
+                    <form action="/stocks/{{ $stock->id }}" id="form_{{ $stock->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="deletePost({{ $stock->id }})">[商品を削除]</button> 
+                    </form>
                 @endforeach
                 <a href="/stocks/create">商品を追加</a>
             </dvi>
             <div class='paginate'>
                 {{ $stocks->links() }}
             </div>
+            <script>
+                function deletePost(id){
+                    'use strict'
+                    
+                    if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                        document.getElementById(`form_${id}`).submit();
+                    }
+                }
+            </script>
         </body>
     </html>
 </x-app-layout>
