@@ -25,7 +25,7 @@
                     <div class="image">
                         <input type="file" name="image[]" multiple>
                     </div>
-                    <div class = "category">
+                    <div class="category">
                         <h2>Category</h2>
                         <select name="post[category_id]">
                             @foreach($categories as $category)
