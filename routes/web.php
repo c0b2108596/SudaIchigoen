@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\EventController;
 
 
 
@@ -40,6 +41,14 @@ Route::controller(StockController::class)->middleware(["auth"])->group(function(
     Route::put('stocks/{stock}', 'update')->name('stock_update');
     Route::get('/stocks/{stock}/edit', 'edit')->name('stock_edit');
     Route::delete('/stocks/{stock}', 'delete')->name('stock_delete');
+});
+
+Route::controller(EventController::class)->middleware(["auth"])->group(function(){
+    Route::get('/calendar', "show")->name("calendar_show");
+    Route::post('/calendar/create', 'create')->name("create");
+    Route::post('/calendar/get', "get")->name("get");
+    Route::put('/calendar/update', 'update')->name("update");
+    Route::delete('/calendar/delete', 'delete')->name("delete");
 });
 
 Route::middleware('auth')->group(function () {
