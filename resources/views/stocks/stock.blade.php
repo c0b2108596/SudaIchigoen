@@ -25,6 +25,11 @@
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $stock->id }})">[商品を削除]</button> 
                     </form>
+                    <form action="/stocks/addcart" method="post", enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="stock_id" value="{{ $stock->id }}">
+                        <input type="submit" onclick="addcart()" value="[カートに追加]"/>
+                    </form>
                 @endforeach
                 <a href="/stocks/create">商品を追加</a>
             </dvi>
@@ -38,6 +43,10 @@
                     if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
                         document.getElementById(`form_${id}`).submit();
                     }
+                }
+                
+                function addcart() {
+                    alert("商品がカートに追加されました。");
                 }
             </script>
         </body>

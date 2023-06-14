@@ -23,7 +23,7 @@ class Stock extends Model
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
-    public function stock_image()
+    public function stock_images()
     {
         return $this->hasMany(StockImage::class);
     }

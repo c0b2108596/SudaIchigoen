@@ -5,18 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PostImage extends Model
+class Cart extends Model
 {
     use HasFactory;
     
     protected $fillable = [
-        'post_id',
-        "url",
+        'user_id',
     ];
     
-    
-    public function post()
+    public function stocks()
     {
-        return $this->belongsTo(Post::class); 
+        return $this->belongsToMany(Stock::class);
     }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

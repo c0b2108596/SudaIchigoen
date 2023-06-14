@@ -36,6 +36,7 @@ Route::controller(FormController::class)->middleware(["auth"])->group(function()
 Route::controller(StockController::class)->middleware(["auth"])->group(function(){
     Route::get('/stocks/stock', 'stock')->name('stock');
     Route::post('/stocks', 'store')->name("stock_store");
+    Route::post('/stocks/addcart', "add_cart")->name("add_cart");
     Route::get('/stocks/create', 'create')->name('stock_create');
     Route::get('/stocks/{stock}', 'show')->name('stock_show');
     Route::put('stocks/{stock}', 'update')->name('stock_update');

@@ -18,4 +18,9 @@ class StockImage extends Model
     {
         return $this->belogsTo(Stock::class);
     }
+    
+    public function carts()
+    {
+        return $this->belogsToMany(Cart::class);
+    }
 }
