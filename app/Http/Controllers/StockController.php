@@ -12,9 +12,12 @@ use App\Models\user;
 
 class StockController extends Controller
 {
-    public function stock(Stock $stock)
-    {
-        return view('stocks.stock')->with(['stocks' => $stock->getPaginateByLimit()]);
+    public function stock(Stock $stock, StockImage $stock_img)
+    {   
+        //dd(StockImage::where('stock_id', '=', $stock->id));
+        $img_gets = StockImage::where('stock_id', '=', $stock->id)->get();
+        
+        return view('stocks.stock')->with(['stocks' => $stock->getPaginateByLimit(), "stock_image" => $img_gets]);
     }
     
     public function create()
@@ -64,18 +67,4 @@ class StockController extends Controller
         $stock->delete();
         return redirect('/stocks/stock');
     }
-    
-    public function add_cart(Request $request, Cart $cart, Stock $stock)
-    {
-        //dd($request->stock_id);
-        $user_id = auth()->user()->id;
-        //$cart->attach($request->stock_id);
-        $cart->user_id=$user_id;
-        $cart->save();
-        $cart->stocks()->attach($request->stock_id);
-        
-        return redirect('/stocks/stock')->with("message", "カートに追加されました。");
-    }
-    
-    
 }

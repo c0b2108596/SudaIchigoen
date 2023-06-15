@@ -9,7 +9,9 @@
             <title>PostCreate</title>
         </head>
         <body>
+            @can('admin')
             <a href="/posts/create">投稿を作成</a>
+            @endcan
     	    <div class='posts'>
     		    @foreach ($posts as $post)
     		    	<h2 class='title'>
@@ -17,11 +19,13 @@
                     </h2>
     		    	<p class "body">{{ $post->body }}</p>
     		    	<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+    		    	@can('admin')
     		    	<form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
                     </form>
+                    @endcan
     		    @endforeach
     	    </div>
             <div class='paginate'>
@@ -35,10 +39,6 @@
                 }
             }
             </script>
-            <p>ログインユーザー：{{ Auth::user()->name }}</p>
         </body>
-        <div class="footer">
-                <a href="/forms/form">お問い合わせ</a>
-        </div>
     </html>
 </x-app-layout>

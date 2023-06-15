@@ -26,16 +26,16 @@
                             <h3>内容</h3>
                             <p>{{ $stock->title }}</p>    
                         </div>
-                        <div class="content_num">
-                            <h3>在庫</h3>
-                            <p>{{ $stock->num }}</p>
-                        </div>
                         <div class="contet_price">
                             <h3>価格</h3>
-                            <p>{{ $stock->price }}</p>
+                            <p>{{ $stock->price }}円</p>
                         </div>
                     @endforeach
                 @endforeach
+            </div>
+            <div class="cart_total">
+                <h2>商品合計：{{ $data["count"] }}点</h2>
+                
             </div>
         </body>
     </html>

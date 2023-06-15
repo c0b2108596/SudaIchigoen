@@ -16,6 +16,11 @@
                 {{ $stock->name }}
             </h1>
             <div class="content">
+                <div class="contet_img">
+                    @foreach($stock_image as $stock_img)
+                        <img src="{{ $stock_img->url }}" alt="画像が読み込めません"/>
+                    @endforeach
+                </div>
                 <div class="content__body">
                     <h2>内容</h2>
                     <p>{{ $stock->body }}</p>    
@@ -27,11 +32,6 @@
                 <div class="contet_price">
                     <h2>価格</h2>
                     <p>{{ $stock->price }}</p>
-                </div>
-                <div class="contet_img">
-                    @foreach($stock_image as $stock_img)
-                        <img src="{{ $stock_img->url }}" alt="画像が読み込めません"/>
-                    @endforeach
                 </div>
             </div>
             <div calss="edit">
