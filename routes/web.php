@@ -7,6 +7,7 @@ use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\CartController;
 
 
 
@@ -42,6 +43,10 @@ Route::controller(StockController::class)->middleware(["auth"])->group(function(
     Route::put('stocks/{stock}', 'update')->name('stock_update');
     Route::get('/stocks/{stock}/edit', 'edit')->name('stock_edit');
     Route::delete('/stocks/{stock}', 'delete')->name('stock_delete');
+});
+
+Route::controller(CartController::class)->middleware(['auth'])->group(function(){
+    Route::get('/carts/{user}/cart', 'cart')->name('cart');
 });
 
 Route::controller(EventController::class)->middleware(["auth"])->group(function(){

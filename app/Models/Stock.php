@@ -27,4 +27,10 @@ class Stock extends Model
     {
         return $this->hasMany(StockImage::class);
     }
+    
+    public function carts()
+    {
+        return $this->belongsToMany(Cart::class);
+    }
 }
+

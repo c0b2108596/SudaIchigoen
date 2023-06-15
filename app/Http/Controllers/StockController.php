@@ -77,4 +77,5 @@ class StockController extends Controller
         return redirect('/stocks/stock')->with("message", "カートに追加されました。");
     }
     
+    
 }
