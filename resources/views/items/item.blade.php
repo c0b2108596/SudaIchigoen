@@ -10,40 +10,40 @@
         </head>
         <body>
             <h1>商品名</h1>
-            <dvi class="stocks">
-                @foreach($stock_image as $stock_img)
+            <dvi class="items">
+                @foreach($item_image as $item_img)
                     <div class="image">
-                        <img src="{{ $stock_img->url }}" alt="画像が読み込めません"/>
+                        <img src="{{ $item_img->url }}" alt="画像が読み込めません"/>
                     </div>
                 @endforeach
-                @foreach ($stocks as $stock)
-                    <div class="sotck">
+                @foreach ($items as $item)
+                    <div class="item">
                         <h2 class="name">
-                            <a href="/stocks/{{ $stock->id }}">{{ $stock->name }}</a>
+                            <a href="/items/{{ $item->id }}">{{ $item->name }}</a>
                         </h2>
-                        <p class="body">{{ $stock->body }}</p>
-                        <p class="num">{{ $stock->num }}</p>
-                        <p class="price">{{ $stock->price }}</p>
+                        <p class="body">{{ $item->body }}</p>
+                        <p class="stock">{{ $item->stock }}</p>
+                        <p class="price">{{ $item->price }}</p>
                     </div>
                     @can('admin')
-                    <form action="/stocks/{{ $stock->id }}" id="form_{{ $stock->id }}" method="post">
+                    <form action="/items/{{ $item->id }}" id="form_{{ $item->id }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="button" onclick="deletePost({{ $stock->id }})">[商品を削除]</button> 
+                        <button type="button" onclick="deletePost({{ $item->id }})">[商品を削除]</button> 
                     </form>
                     @endcan
-                    <form action="/stocks/addcart" method="post", enctype="multipart/form-data">
+                    <form action="/items/addcart" method="POST", enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="stock_id" value="{{ $stock->id }}">
+                        <input type="hidden" name="id" value="{{ $item->id }}">
                         <input type="submit" onclick="addcart()" value="[カートに追加]"/>
                     </form>
                 @endforeach
                 @can('admin')
-                <a href="/stocks/create">商品を追加</a>
+                <a href="/items/create">商品を追加</a>
                 @endcan
             </dvi>
             <div class='paginate'>
-                {{ $stocks->links() }}
+                {{ $items->links() }}
             </div>
             <script>
                 function deletePost(id){

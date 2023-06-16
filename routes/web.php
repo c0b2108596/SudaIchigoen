@@ -5,7 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StockController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CartController;
 
@@ -34,19 +34,19 @@ Route::controller(FormController::class)->middleware(["auth"])->group(function()
     Route::get('/forms/{index}', 'index')->name('form_index');
 });
 
-Route::controller(StockController::class)->middleware(["auth"])->group(function(){
-    Route::get('/stocks/stock', 'stock')->name('stock');
-    Route::post('/stocks', 'store')->name("stock_store");
-    Route::get('/stocks/create', 'create')->name('stock_create');
-    Route::get('/stocks/{stock}', 'show')->name('stock_show');
-    Route::put('stocks/{stock}', 'update')->name('stock_update');
-    Route::get('/stocks/{stock}/edit', 'edit')->name('stock_edit');
-    Route::delete('/stocks/{stock}', 'delete')->name('stock_delete');
+Route::controller(ItemController::class)->middleware(["auth"])->group(function(){
+    Route::get('/items/item', 'item')->name('item');
+    Route::post('/items', 'store')->name("item_store");
+    Route::get('/items/create', 'create')->name('item_create');
+    Route::get('/items/{item}', 'show')->name('item_show');
+    Route::put('items/{item}', 'update')->name('item_update');
+    Route::get('/items/{item}/edit', 'edit')->name('item_edit');
+    Route::delete('/items/{item}', 'delete')->name('item_delete');
 });
 
 Route::controller(CartController::class)->middleware(['auth'])->group(function(){
     Route::get('/carts/{user}/cart', 'cart')->name('cart');
-    Route::post('/stocks/addcart', "add_cart")->name("add_cart");
+    Route::post('/items/addcart', "add_cart")->name("add_cart");
 });
 
 Route::controller(EventController::class)->middleware(["auth"])->group(function(){

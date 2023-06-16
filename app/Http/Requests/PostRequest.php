@@ -13,9 +13,5 @@ class PostRequest extends FormRequest
             'post.body' => 'required|string|max:4000',
         ];
     }
-    
-    public function stock_images()
-    {
-        return $this->hasmany(PostImage::class);
-    }
+
 }

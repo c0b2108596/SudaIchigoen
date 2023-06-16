@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                         {{ __('お知らせ') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('stock')" :active="request()->routeIs('stock')">
+                    <x-nav-link :href="route('item')" :active="request()->routeIs('item')">
                         {{ __('商品注文') }}
                     </x-nav-link>
                     <x-nav-link :href="route('cart', Auth::user()->id)" :active="request()->routeIs('cart')">

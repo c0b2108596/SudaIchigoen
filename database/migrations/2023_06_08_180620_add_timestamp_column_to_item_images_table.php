@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('stock_images', function (Blueprint $table) {
+        Schema::table('item_images', function (Blueprint $table) {
             $table->timestamps();
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('stock_images', function (Blueprint $table) {
+        Schema::table('item_images', function (Blueprint $table) {
             //
         });
     }

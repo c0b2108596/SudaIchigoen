@@ -11,11 +11,13 @@ class Cart extends Model
     
     protected $fillable = [
         'user_id',
+        'item_id', 
+        'num'
     ];
     
-    public function stocks()
+    public function item()
     {
-        return $this->belongsToMany(Stock::class);
+        return $this->belongsTo(Item::class);
     }
     
     public function user()

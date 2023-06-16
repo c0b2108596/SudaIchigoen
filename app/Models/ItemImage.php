@@ -5,22 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StockImage extends Model
+class ItemImage extends Model
 {
     use HasFactory;
     
     protected $fillable = [
-        'stock_id',
+        'item_id',
         "url"
     ];
     
-    public function stock()
+    public function item()
     {
-        return $this->belogsTo(Stock::class);
-    }
-    
-    public function carts()
-    {
-        return $this->belogsToMany(Cart::class);
+        return $this->belogsTo(Item::class);
     }
 }

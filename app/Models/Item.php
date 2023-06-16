@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Stock extends Model
+class Item extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -14,7 +14,7 @@ class Stock extends Model
     protected $fillable = [
         'name',
         'body',
-        'num',
+        'stock',
         'price',
     ];
     
@@ -23,14 +23,13 @@ class Stock extends Model
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
-    public function stock_images()
+    public function item_images()
     {
-        return $this->hasMany(StockImage::class);
+        return $this->hasMany(ItemImage::class);
     }
     
     public function carts()
     {
-        return $this->belongsToMany(Cart::class);
+        return $this->hasMany(Cart::class);
     }
 }
-
