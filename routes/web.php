@@ -45,7 +45,7 @@ Route::controller(ItemController::class)->middleware(["auth"])->group(function()
 });
 
 Route::controller(CartController::class)->middleware(['auth'])->group(function(){
-    Route::get('/carts/{user}/cart', 'cart')->name('cart');
+    Route::get('/carts/{user}/show', 'show')->name('show_cart');
     Route::post('/items/addcart', "add_cart")->name("add_cart");
 });
 

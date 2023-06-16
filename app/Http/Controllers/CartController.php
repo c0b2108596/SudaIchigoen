@@ -13,11 +13,11 @@ use App\Http\Requests\ItemRequest;
 
 class CartController extends Controller
 {
-    public function add_cart(Request $request, Cart $cart, Item $item)
+    public function add_cart(Request $request, Cart $cart)
     {
         $user_id = auth()->user()->id;
         $item_id = $request->id;
-        $cart_content = Cart::where("user_id", "=", $user_id)->first();
+        $cart_content = Cart::where("user_id", "=", $user_id)->where("item_id", "=", $item_id)->first();
         if ($cart_content === null)
         {   
             $cart->user_id=$user_id;
@@ -30,6 +30,14 @@ class CartController extends Controller
         }
         
         return redirect('/items/item');
+    }
+    
+    public function show(Cart $cart, Item $item, ItemImage $item_img)
+    {
+        $user_id = auth()->user()->id;
+        $cart_gets = Cart::where('user_id', "=", $user_id)->get();
+        
+        return view("carts.cart")->with(["carts" => $cart_gets, "item" => $item->get()]);
     }
     
 }
