@@ -7,6 +7,7 @@ use App\Http\Requests\PostRequest; // useする
 use App\Models\Category;
 use Cloudinary;
 use App\Models\PostImage;
+use Gate;
 
 class PostController extends Controller
 {
@@ -24,12 +25,15 @@ class PostController extends Controller
 
     public function create(Category $category)
     {
+        Gate::authorize('admin');
+        
         return view('posts/create')->with(['categories'=>$category->get()]);
     }
 
     public function store(Post $post, PostRequest $request) // 引数をRequestからPostRequestにする
-    {
-        //dd($request['post']);
+    {   
+        Gate::authorize('admin');
+        
         $images = $request->file('image');
         $input = $request['post'];
         $post->fill($input)->save();
@@ -47,11 +51,15 @@ class PostController extends Controller
     
     public function edit(Post $post)
     {
+        Gate::authorize('admin');
+        
         return view('posts/edit')->with(['post' => $post]);
     }
     
     public function update(Post $post, PostRequest $request)
     {
+        Gate::authorize('admin');
+        
         $input_post = $request['post'];
         $post->fill($input_post)->save();
         
@@ -60,6 +68,8 @@ class PostController extends Controller
     
     public function delete(Post $post)
     {
+        Gate::authorize('admin');
+        
         $post->delete();
         return redirect('/');
     }

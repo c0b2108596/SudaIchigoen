@@ -28,9 +28,11 @@
                 </div>
             </div>
             </div>
+            @can('admin')
             <div calss="edit">
                 <a href="/posts/{{ $post->id }}/edit">edit</a>
             </div>
+            @endcan
             <div class="footer">
                 <a href="/">戻る</a>
             </div>

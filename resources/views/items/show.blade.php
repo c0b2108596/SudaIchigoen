@@ -13,32 +13,32 @@
         </head>
         <body>
             <h1 class="title">
-                {{ $stock->name }}
+                {{ $item->name }}
             </h1>
             <div class="content">
+                <div class="contet_img">
+                    @foreach($item_image as $item_img)
+                        <img src="{{ $item_img->url }}" alt="画像が読み込めません"/>
+                    @endforeach
+                </div>
                 <div class="content__body">
                     <h2>内容</h2>
-                    <p>{{ $stock->body }}</p>    
+                    <p>{{ $item->body }}</p>    
                 </div>
-                <div class="content_num">
+                <div class="content_stock">
                     <h2>在庫</h2>
-                    <p>{{ $stock->num }}</p>
+                    <p>{{ $item->stock }}</p>
                 </div>
                 <div class="contet_price">
                     <h2>価格</h2>
-                    <p>{{ $stock->price }}</p>
-                </div>
-                <div class="contet_img">
-                    @foreach($stock_image as $stock_img)
-                        <img src="{{ $stock_img->url }}" alt="画像が読み込めません"/>
-                    @endforeach
+                    <p>{{ $item->price }}</p>
                 </div>
             </div>
             <div calss="edit">
-                <a href="/stocks/{{ $stock->id }}/edit">編集</a>
+                <a href="/items/{{ $item->id }}/edit">編集</a>
             </div>
             <div class="footer">
-                <a href="/">戻る</a>
+                <a href="/items/item">戻る</a>
             </div>
         </body>
     </html>

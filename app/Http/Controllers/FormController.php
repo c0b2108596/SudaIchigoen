@@ -25,6 +25,8 @@ class FormController extends Controller
     
     public function show(Form $form)
     {
+        Gate::authorize('admin');
+        
         return view('forms.show')->with(['form' => $form]);
     }
     

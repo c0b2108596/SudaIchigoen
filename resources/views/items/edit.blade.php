@@ -11,24 +11,24 @@
         <body>
             <h1 class="title">編集画面</h1>
             <div class="content">
-                <form action="/stocks/{{ $stock->id }}" method="POST">
+                <form action="/items/{{ $item->id }}" method="POST">
                     @csrf
                     @method("PUT")
                     <div class="content__name">
                         <h2>商品名</h2>
-                        <input type="text" name="stock[name]" value="{{ $stock->name }}">
+                        <input type="text" name="item[name]" value="{{ $item->name }}">
                     </div>
                     <div calss="content__body">
                         <h2>内容</h2>
-                        <input type="text" name="stock[body]" value="{{ $stock->body }}">
+                        <input type="text" name="item[body]" value="{{ $item->body }}">
                     </div>
-                    <div class="conten_num">
+                    <div class="conten_stock">
                         <h2>在庫数</h2>
-                        <input type="text" name="stock[num]" value="{{ $stock->num }}">
+                        <input type="text" name="item[stock]" value="{{ $item->stock }}">
                     </div>
                     <div class="conten_price">
                         <h2>価格</h2>
-                        <input type="text" name="stock[price]" value="{{ $stock->price }}">
+                        <input type="text" name="item[price]" value="{{ $item->price }}">
                     </div>
                     <input type="submit" value="保存">
                 </form>
