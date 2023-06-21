@@ -7,6 +7,7 @@
         <head>
             <meta charset="utf-8">
             <title>PostCreate</title>
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
         </head>
         <body>
             @can('admin')
