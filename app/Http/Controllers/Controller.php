@@ -10,4 +10,11 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    
+    public function googlemap()
+    {
+        $api_key = config('app.api_key');
+        
+        return view('api.goolgemap')->with(['api_key' => $api_key]);
+    }
 }
