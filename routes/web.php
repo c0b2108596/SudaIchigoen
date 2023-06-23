@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Controller;
 
 
 
@@ -56,6 +57,8 @@ Route::controller(EventController::class)->middleware(["auth"])->group(function(
     Route::put('/calendar/update', 'update')->name("update");
     Route::delete('/calendar/delete', 'delete')->name("delete");
 });
+
+Route::get('/map', [Controller::class,'googlemap'])->middleware("auth")->name('map');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

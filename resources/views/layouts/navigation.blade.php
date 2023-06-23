@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('calendar_show')" :active="request()->routeIs('calendar_show')">
                         {{ __('カレンダー') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('map')" :active="request()->routeIs('map')">
+                        {{ __('マップ') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('form')" :active="request()->routeIs('form')">
                         {{ __('お問い合わせ') }}
                     </x-nav-link>
