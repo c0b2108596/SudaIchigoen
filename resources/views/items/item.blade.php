@@ -1,7 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        SudaIchigoen
-    </x-slot>
     <!DOCTYPE HTML>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
@@ -11,19 +8,19 @@
         <body>
             <h1>商品名</h1>
             <dvi class="items">
-                @foreach($item_image as $item_img)
-                    <div class="image">
-                        <img src="{{ $item_img->url }}" alt="画像が読み込めません"/>
-                    </div>
-                @endforeach
                 @foreach ($items as $item)
                     <div class="item">
                         <h2 class="name">
                             <a href="/items/{{ $item->id }}">{{ $item->name }}</a>
                         </h2>
                         <p class="body">{{ $item->body }}</p>
+                        @can('admin')
                         <p class="stock">{{ $item->stock }}</p>
                         <p class="price">{{ $item->price }}</p>
+                        @endcan
+                        @foreach ($item->item_images as $img)
+                            <img src="{{ $img->url }}" alt="画像が読み込めません"/>
+                        @endforeach
                     </div>
                     @can('admin')
                     <form action="/items/{{ $item->id }}" id="form_{{ $item->id }}" method="post">
