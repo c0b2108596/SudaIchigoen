@@ -13,22 +13,19 @@ use Gate;
 
 class ItemController extends Controller
 {
-    public function item(Item $item, ItemImage $item_img)
+    public function item(Item $item, ItemImage $item_img) //商品を一覧表示する。
     {   
-        $img_gets = ItemImage::where('item_id', '=', $item->id)->get();
-        
-        return view('items.item')->with(['items' => $item->getPaginateByLimit(), "item_image" => $img_gets]);
+        return view('items.item')->with(['items' => $item->getPaginateByLimit()]);
     }
     
-    public function create(Item $item)
+    public function create(Item $item) //新しい商品を投稿(管理者のみ)
     {
         Gate::authorize('admin');
 
-        
         return view('items.create');
     }
     
-    public function store(ItemRequest $request, Item $item)
+    public function store(ItemRequest $request, Item $item) //新しい商品を保存する(管理者のみ)
     {  
         Gate::authorize('admin');
         
@@ -47,14 +44,14 @@ class ItemController extends Controller
         return redirect('/items/' . $item->id);
     }
     
-    public function edit(Item $item)
+    public function edit(Item $item) //商品の詳細を編集(管理者のみ)
     {
         Gate::authorize('admin');
         
         return view('items.edit')->with(['item' => $item]);
     }
     
-    public function update(ItemRequest $request, Item $item)
+    public function update(ItemRequest $request, Item $item) //商品の詳細の変更を保存(管理者のみ)
     {
         Gate::authorize('admin');
         
@@ -64,14 +61,14 @@ class ItemController extends Controller
         return redirect('/items/' . $item->id);
     }
     
-    public function show(Item $item, ItemImage $itemimage)
+    public function show(Item $item, ItemImage $itemimage) //商品の詳細を見る
     {
         $item_get = ItemImage::where('item_id', '=', $item->id)->get();
         
         return view('items.show')->with(['item' => $item, "item_image" => $item_get]);
     }
     
-    public function delete(Item $item)
+    public function delete(Item $item) //商品の削除
     {
         Gate::authorize('admin');
         

@@ -1,7 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        SudaIchigoen
-    </x-slot>
     <!DOCTYPE html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
@@ -17,6 +14,7 @@
             <!-- カレンダー新規追加モーダル -->
             <div id="modal-add" class="modal">
                 <div class="modal-contents">
+                    @can("admin")
                     <form method="POST" action="{{ route('create') }}">
                         @csrf
                         <input id="new-id" type="hidden" name="id" value="" />
@@ -36,6 +34,7 @@
                         <button type="button" onclick="closeAddModal()">キャンセル</button>
                         <button type="submit">決定</button>
                     </form>
+                    @endcan
                 </div>
             </div>
              <!-- カレンダー編集モーダル -->

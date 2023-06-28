@@ -27,6 +27,7 @@ if (calendarEl){
         initialView: "dayGridMonth", // 最初に表示させるページの形式
         
         customButtons: { // カスタムボタン
+            
             eventAddButton: { // 新規予定追加ボタン
                 text: '予定を追加',
                 click: function() {

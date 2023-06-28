@@ -1,7 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        SudaIchigoen
-    </x-slot>
     <!DOCTYPE HTML>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
@@ -13,7 +10,7 @@
         </head>
         <body>
             <h1 class="title">
-                {{ $item->name }}
+                {{$item->name }}
             </h1>
             <div class="content">
                 <div class="contet_img">
