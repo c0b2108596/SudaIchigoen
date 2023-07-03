@@ -82,9 +82,24 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
+            <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
+                {{ __('お知らせ') }}
+            </x-nav-link>
+            <x-nav-link :href="route('item')" :active="request()->routeIs('item')">
+                {{ __('商品注文') }}
+            </x-nav-link>
+            <x-nav-link :href="route('show_cart', Auth::user()->id)" :active="request()->routeIs('show_cart')">
+                {{ __('カート') }}
+            </x-nav-link>
+            <x-nav-link :href="route('calendar_show')" :active="request()->routeIs('calendar_show')">
+                {{ __('カレンダー') }}
+            </x-nav-link>
+            <x-nav-link :href="route('map')" :active="request()->routeIs('map')">
+                {{ __('マップ') }}
+            </x-nav-link>
+            <x-nav-link :href="route('form')" :active="request()->routeIs('form')">
+                {{ __('お問い合わせ') }}
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

@@ -11,7 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
-    public function googlemap()
+    public function googlemap() //goolge mapの外部API連携
     {
         $api_key = config('app.api_key');
         

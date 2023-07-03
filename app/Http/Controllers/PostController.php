@@ -11,7 +11,7 @@ use Gate;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
+    public function index(Post $post) //投稿の一覧を表示する
     {
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
@@ -23,16 +23,16 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post, 'post_image' => $image_get]);
     }
 
-    public function create(Category $category)
+    public function create(Category $category) //投稿作成する(管理者用)
     {
-        Gate::authorize('admin');
+        Gate::authorize('admin'); //管理者しかviewできない処理
         
         return view('posts/create')->with(['categories'=>$category->get()]);
     }
 
-    public function store(Post $post, PostRequest $request) // 引数をRequestからPostRequestにする
+    public function store(Post $post, PostRequest $request) //投稿を保存する(管理者用)
     {   
-        Gate::authorize('admin');
+        Gate::authorize('admin'); 
         
         $images = $request->file('image');
         $input = $request['post'];
@@ -49,14 +49,14 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
-    public function edit(Post $post)
+    public function edit(Post $post) //投稿を編集する(管理者用)
     {
         Gate::authorize('admin');
         
         return view('posts/edit')->with(['post' => $post]);
     }
     
-    public function update(Post $post, PostRequest $request)
+    public function update(Post $post, PostRequest $request) //編集した内容を更新する(管理者用)
     {
         Gate::authorize('admin');
         
