@@ -15,7 +15,11 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        @auth
         <div class="min-h-screen bg-gray-100">
+        @else
+        <div>
+        @endauth
             @include('layouts.navigation')
 
             <!-- Page Heading -->

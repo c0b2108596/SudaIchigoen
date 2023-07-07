@@ -10,13 +10,14 @@
             @can('admin')
             <a href="/posts/create">投稿を作成</a>
             @endcan
-    	    <div class='posts'>
+    	    <div class='max-w-screen-xl px-4 mx-auto md:px-8'>
     		    @foreach ($posts as $post)
-    		    	<h2 class='title'>
-                        <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-                    </h2>
-    		    	<p class "body">{{ $post->body }}</p>
-    		    	<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+    		    	<ul>
+    		    	    <li class="border-2">
+                            <a class="text-3xl flex justify-center " href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+                            <a class="" href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                        </li>
+                    </ul>
     		    	@can('admin')
     		    	<form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
