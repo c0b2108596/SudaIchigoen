@@ -15,7 +15,7 @@
     		    	<ul>
     		    	    <li class="border-2">
                             <a class="text-3xl flex justify-center " href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-                            <a class="flex justify-right" href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                            <a class="" href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                         </li>
                     </ul>
     		    	@can('admin')
