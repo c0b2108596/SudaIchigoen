@@ -13,7 +13,7 @@ class EventController extends Controller
     }
     
     public function create(Request $request, Event $event){
-        // バリデーション（eventsテーブルの中でNULLを許容していないものをrequired）
+        // バリデーション（eventsテーブルの中でNULLを許容していないものをrequired
         $request->validate([
             'event_title' => 'required',
             'start_date' => 'required',

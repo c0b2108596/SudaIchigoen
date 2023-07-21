@@ -32,7 +32,6 @@ class PostController extends Controller
 
     public function store(Post $post, PostRequest $request) //投稿を保存する(管理者用)
     {   
-        Gate::authorize('admin'); 
         
         $images = $request->file('image');
         $input = $request['post'];
