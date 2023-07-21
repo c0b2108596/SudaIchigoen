@@ -15,6 +15,6 @@ class Controller extends BaseController
     {
         $api_key = config('app.api_key');
         
-        return view('api.goolgemap')->with(['api_key' => $api_key]);
+        return view('api.googlemap')->with(['api_key' => $api_key]);
     }
 }

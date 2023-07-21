@@ -17,11 +17,20 @@ class Post extends Model
         'category_id',
     ];
     
+    //ページネーション
     public function getPaginateByLimit(int $limit_count = 5)
     {
-    // updated_atで降順に並べたあと、limitで件数制限をかける
+        // updated_atで降順に並べたあと、limitで制限する
         return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    
+    //ホームページで表示するお知らせを最新5件に制限
+    public function getByLimit(int $limit_count = 5)
+    {
+        //update_atで降順に並べたあと、limitで制限する
+        return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
+    }
+    
     
     public function category()
     {

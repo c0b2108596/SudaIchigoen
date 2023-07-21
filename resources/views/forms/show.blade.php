@@ -3,7 +3,10 @@
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
             <meta charset="utf-8">
-            <title>お問い合わせフォーム</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Posts</title>
+            <!-- Fonts -->
+            <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@700&display=swap" rel="stylesheet">
         </head>
         <body>
             <h1>お問い合わせが送信されました。</h1>

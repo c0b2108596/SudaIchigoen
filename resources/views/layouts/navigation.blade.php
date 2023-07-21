@@ -11,7 +11,10 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="sticky top-0 z-50 hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('ホーム') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('post_index')" :active="request()->routeIs('index')">
                         {{ __('お知らせ') }}
                     </x-nav-link>
@@ -33,9 +36,15 @@
                     <x-nav-link :href="route('map')" :active="request()->routeIs('map')">
                         {{ __('マップ') }}
                     </x-nav-link>
+                    @auth
                     <x-nav-link :href="route('form')" :active="request()->routeIs('form')">
                         {{ __('お問い合わせ') }}
                     </x-nav-link>
+                    @else
+                    <x-nav-link :href="route('login')">
+                        {{ __('お問い合わせ') }}
+                    </x-nav-link>
+                    @endauth
                 </div>
             </div>
 
@@ -102,6 +111,9 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                {{ __('ホーム') }}
+            </x-nav-link>
             <x-nav-link :href="route('post_index')" :active="request()->routeIs('index')">
                 {{ __('お知らせ') }}
             </x-nav-link>
@@ -124,9 +136,15 @@
             <x-nav-link :href="route('map')" :active="request()->routeIs('map')">
                 {{ __('マップ') }}
             </x-nav-link>
+            @auth
             <x-nav-link :href="route('form')" :active="request()->routeIs('form')">
                 {{ __('お問い合わせ') }}
             </x-nav-link>
+            @else
+            <x-nav-link :href="route('login')">
+                {{ __('お問い合わせ') }}
+            </x-nav-link>
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->
