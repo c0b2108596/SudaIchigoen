@@ -9,24 +9,32 @@
             <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@700&display=swap" rel="stylesheet">
         </head>
         <body>
-            <h1>お問い合わせフォーム</h1>
-            <form action="/forms" method="POST">
-                @csrf
-                <div class="title">
-                    <h2>件名</h2>
-                    <input type="text" name="form[title]" placeholder="件名" value"{{ old('form.title') }}"/>
-                    <p class="title_error" style="color:red">{{ $errors->first('form.title') }}</p>
+            <div class="py-6 sm:py-8 lg:py-12">
+                <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                    <h1 class="text-3xl font-bold mt-10 text-center">お問い合わせ</h1>
+                    <form class="mx-auto grid max-w-screen-md gap-4 text-bold sm:grid-cols-2" action="/forms/form" method="POST">
+                        @csrf
+                        <div class="sm:col-span-2">
+                            <la
+                            bel for="message" class="text-xl mb-2 inline-block text-sm sm:text-base">件名</label>
+                            <input type="text" name="form[title]" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" placeholder="件名" value="{{ old('form.title') }}"/>
+                            <p class="title_error" style="color:red">{{ $errors->first('form.title') }}</p>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="message" class="text-xl mb-2 inline-block text-sm sm:text-base">内容</label>
+                            <textarea name="form[body]" class="h-96 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" placeholder="内容を入力してください。">{{ old('form.body') }}</textarea>
+                            <p class="body_error" style="color:red">{{ $errors->first('form.body') }}</p>
+                        </div>
+                        <button type="submit" class="py-2 px-3 items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" onclick="send()">送信</button>
+                    </form>
+                    <button type="button" class="py-2 px-3 items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" onclick="location.href='/forms/index'">お問い合わせ一覧</button>
                 </div>
-                <div class="body">
-                    <h2>内容</h2>
-                    <textarea name="form[body]" placeholder="内容を入力してください。">{{ old('form.body') }}</textarea>
-                    <p class="body_error" style="color:red">{{ $errors->first('form.body') }}</p>
-                </div>
-                <input type="submit" value="保存"/>
-            </form>
-            <div class="footer">
-                <a href="/">戻る</a>
             </div>
+            <script>
+                function send() {
+                        alert("お問い合わせフォームが送信されました。");
+                    }
+            </script>
         </body>
     </html>
 </x-app-layout>

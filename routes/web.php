@@ -34,10 +34,9 @@ Route::get('/categories/{category}', [CategoryController::class,'index']); //並
 
 /*お問い合わせフォーム(ログイン時のみ)*/
 Route::controller(FormController::class)->middleware(["auth"])->group(function(){
+    Route::post('/forms/form', 'store')->name('form_store'); //お問い合わせ保存
     Route::get('/forms/form', 'form')->name('form'); //お問い合わせフォーム画面のビュー
-    Route::get('/forms/show', "show")->name('show'); //お問い合わせした後の画面遷移
-    Route::post('/forms', 'store')->name('store'); //お問い合わせ保存
-    Route::get('/forms/{index}', 'index')->name('form_index'); ////お問い合わせ一覧のビュー(管理者用)
+    Route::get('/forms/index', 'index')->name('form_index'); ////お問い合わせ一覧のビュー(管理者用)
 });
 
 /*商品投稿*/

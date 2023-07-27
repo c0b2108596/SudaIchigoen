@@ -12,11 +12,11 @@
             <div class="flex justify-center">
                 <img class="w-[1000px] h-[500px] my-2" src="https://media.discordapp.net/attachments/868770920788004924/1118792136314327080/IMG_1043.jpg?width=902&height=663"/>
             </div>
-            <h1 class="my-2 text-3xl text-center">~須田いちご農園~</h1>
-            <p class="my-2 text-xl text-center">須田いちご農園のホームページです。</p>
-            <p class="my-2 text-xl  text-center">お知らせや販売情報を掲載していくのでチェックお願いします。</p>
+            <h1 class="my-2 text-3xl text-center font-bold text-gray-800">~須田いちご農園~</h1>
+            <p class="my-2 text-xl text-center text-gray-600">須田いちご農園のホームページです。</p>
+            <p class="my-2 text-xl  text-center text-gray-600">お知らせや販売情報を掲載していくのでチェックお願いします。</p>
             <div>
-                <h1 class=" text-3xl text-center">~お知らせ~</h1>
+                <h1 class="text-3xl text-center font-bold text-gray-800">~お知らせ~</h1>
                 <div class="">
                     @foreach($posts as $post)
                     <div class="border-b-2">
