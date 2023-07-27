@@ -10,7 +10,9 @@
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         </head>
         <body>
-            <div id='calendar'></div>
+            <h1 class="text-3xl font-bold mt-10 text-center">お知らせカレンダー</h1>
+            <p class="my-2 text-xl text-center text-gray-600">イベントの日程と休業日を掲載しています。</p>
+            <div id='calendar' class="mt-10"></div>
             <!-- カレンダー新規追加モーダル -->
             <div id="modal-add" class="modal">
                 <div class="modal-contents">
