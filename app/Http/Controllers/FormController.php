@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Form;
 use App\Http\Requests\FormsRequest;
+use Gate;
 
 class FormController extends Controller
 {
@@ -20,18 +21,13 @@ class FormController extends Controller
         $input += ['user_id' => $request->user()->id];
         $form->fill($input)->save();
         
-        return redirect('/forms/show');
+        return redirect('/forms/form');
     }
     
-    public function show(Form $form) //投稿が送られた時あとの遷移画面
-    {
-        
-        return view('forms.show')->with(['form' => $form]);
-    }
     
     public function index(Form $form) //送られたフォームを見る(管理者用)
     {
-        Gate::authorize('admin');
+        //Gate::authorize('admin');
         
         return view('forms.index')->with(['forms' => $form->getPaginateByLimit()]);
     }
