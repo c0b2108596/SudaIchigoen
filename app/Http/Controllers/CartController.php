@@ -46,4 +46,12 @@ class CartController extends Controller
         return view("carts.cart")->with(["carts" => $cart_gets, "item" => $item->get()]);
     }
     
+    
+    public function delete(Item $item) //商品の削除
+    {
+        Gate::authorize('admin');
+        
+        $item->delete();
+        return redirect('/');
+    }
 }
