@@ -21,9 +21,7 @@
                         <p class="stock">{{ $item->stock }}</p>
                         <p class="price">{{ $item->price }}</p>
                         @endcan
-                        @foreach ($item->item_images as $img)
-                            <img src="{{ $img->url }}" alt="画像が読み込めません"/>
-                        @endforeach
+                        <img src="{{ $item->ItemImage->url }}" alt="画像が読み込めません"/>
                     </div>
                     @can('admin')
                     <form action="/items/{{ $item->id }}" id="form_{{ $item->id }}" method="post">
@@ -42,9 +40,6 @@
                 <a href="/items/create">商品を追加</a>
                 @endcan
             </dvi>
-            <div class='paginate'>
-                {{ $items->links() }}
-            </div>
             <script>
                 function deletePost(id){
                     'use strict'
