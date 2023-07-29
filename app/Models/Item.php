@@ -28,6 +28,11 @@ class Item extends Model
         return $this->hasMany(ItemImage::class);
     }
     
+    public function itemImage()
+    {
+        return $this->hasOne(ItemImage::class);
+    }
+    
     public function carts()
     {
         return $this->hasMany(Cart::class);

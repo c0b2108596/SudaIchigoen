@@ -30,6 +30,7 @@
                         <h3>注文数</3>
                         <p>{{ $cart->num }}</p>
                     </div>
+                    <img src="{{ $cart->item->ItemImage->url }}" alt="画像が読み込めません"/>
                 @endforeach
             </div>
         </body>

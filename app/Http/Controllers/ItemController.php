@@ -13,9 +13,11 @@ use Gate;
 
 class ItemController extends Controller
 {
-    public function item(Item $item, ItemImage $item_img) //商品を一覧表示する。
+    public function item() //商品を一覧表示する。
     {   
-        return view('items.item')->with(['items' => $item->getPaginateByLimit()]);
+        $items = Item::with('itemImage')->get();
+        
+        return view('items.item', compact('items'));
     }
     
     public function create(Item $item) //新しい商品を投稿(管理者のみ)
