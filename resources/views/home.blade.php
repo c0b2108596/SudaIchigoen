@@ -9,11 +9,11 @@
             <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@700&display=swap" rel="stylesheet">
         </head>
         <body>
-            <h1 class="text-3xl font-bold my-11 text-gray-800 text-center">～須田いちご農園～</h1>
+            <h1 class="text-3xl font-bold my-11 text-gray-800 text-center">～須田いちご園～</h1>
             <div class="flex justify-center">
                 <img class="w-[1000px] h-[500px] my-2" src="https://media.discordapp.net/attachments/868770920788004924/1118792136314327080/IMG_1043.jpg?width=902&height=663"/>
             </div>
-            <p class="my-2 text-xl text-center text-gray-600">須田いちご農園のホームページです。</p>
+            <p class="my-2 text-xl text-center text-gray-600">須田いちご園のホームページです。</p>
             <p class="my-2 text-xl  text-center text-gray-600">お知らせや販売情報を掲載していくのでチェックお願いします。</p>
             <div>
                 <h1 class="text-3xl font-bold my-11 text-gray-800 text-center">～お知らせ一覧～</h1>
