@@ -11,7 +11,7 @@
         <body>
             <h1 class="text-3xl font-bold mt-10 text-center">商品注文</h1>
             @can('admin')
-                <button type="button" class="ml-2 py-2 px-3 items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" onclick="location.href='/posts/create'">新規投稿を作成</button>
+                <button type="button" class="ml-2 py-2 px-3 items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" onclick="location.href='/posts/create'">商品を追加</button>
             @endcan
                 @foreach ($items as $item)
                     <section class="text-gray-600 flex body-font overflow-hidden">
