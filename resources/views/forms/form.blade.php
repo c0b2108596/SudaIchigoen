@@ -14,8 +14,7 @@
                 <form class="mx-auto grid max-w-screen-md gap-4 text-bold sm:grid-cols-2" action="/forms/form" method="POST">
                     @csrf
                     <div class="sm:col-span-2">
-                        <la
-                        bel for="message" class="text-xl mb-2 inline-block text-sm sm:text-base">件名</label>
+                        <label for="message" class="text-xl mb-2 inline-block text-sm sm:text-base">件名</label>
                         <input type="text" name="form[title]" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" placeholder="件名" value="{{ old('form.title') }}"/>
                         <p class="title_error" style="color:red">{{ $errors->first('form.title') }}</p>
                     </div>

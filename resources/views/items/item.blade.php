@@ -19,8 +19,8 @@
                         <p class="body">{{ $item->body }}</p>
                         @can('admin')
                         <p class="stock">{{ $item->stock }}</p>
-                        <p class="price">{{ $item->price }}</p>
                         @endcan
+                        <p class="price">{{ $item->price }}</p>
                         <img src="{{ $item->ItemImage->url }}" alt="画像が読み込めません"/>
                     </div>
                     @can('admin')
