@@ -9,31 +9,39 @@
             <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@700&display=swap" rel="stylesheet">
         </head>
         <body>
-            <h1 class="title">編集画面</h1>
-            <div class="content">
-                <form action="/items/{{ $item->id }}" method="POST">
+            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                <h1 class="text-3xl font-bold mt-10 text-center">投稿編集</h1>
+                <form class="mx-auto grid max-w-screen-md gap-4 text-bold sm:grid-cols-2" action="/items/{{ $item->id }}" method="POST">
                     @csrf
                     @method("PUT")
-                    <div class="content__name">
-                        <h2>商品名</h2>
-                        <input type="text" name="item[name]" value="{{ $item->name }}">
+                    <div class="sm:col-span-2">
+                        <label for="message" class="text-xl mb-2 inline-block text-bold text-sm sm:text-base">商品名</label>
+                        <input type="text" name="item[name]" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" value="{{ $item->name }}">
                     </div>
-                    <div calss="content__body">
-                        <h2>内容</h2>
-                        <input type="text" name="item[body]" value="{{ $item->body }}">
+                    <div class="sm:col-span-2">
+                        <label for="message" class="text-xl mb-2 inline-block text-sm sm:text-base">商品説明</label>
+                        <input type="text" "post[body]" class="h-96 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" name="item[body]" value="{{ $item->body }}">
+                    <div class="sm:col-span-2">
+                        <label for="message" class="text-xl mb-2 inline-block text-sm sm:text-base">在庫数</label>
+                        <input type="text" name="item[stock]" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" value="{{ $item->stock }}">
                     </div>
-                    <div class="conten_stock">
-                        <h2>在庫数</h2>
-                        <input type="text" name="item[stock]" value="{{ $item->stock }}">
+                    <div class="sm:col-span-2">
+                        <label for="message" class="text-xl mb-2 inline-block text-sm sm:text-base">価格</label>
+                        <input type="text" name="item[price]" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" value="{{ $item->price }}">
                     </div>
-                    <div class="conten_price">
-                        <h2>価格</h2>
-                        <input type="text" name="item[price]" value="{{ $item->price }}">
+                    <div class="py-2 flex flex-wrap md:flex-nowrap">
+                        <div class="md:w-32 md:mb-0 mb-2 flex-shrink-0 flex flex-col">
+                            <button type="submit" class="py-2 px-3 items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" onclick="store()">保存</button>
+                        </div>
                     </div>
-                    <input type="submit" value="保存">
                 </form>
+                <button type="submit" class="py-2 px-3 items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" onclick="location.href='/posts/{{ $item->id }}'">戻る</button>
             </div>
-            <div class="back">[<a href="/">back</a>]</div>
+            <script>
+                function store() {
+                    alert("変更が保存されました。");
+                }
+            </script>
         </body>
     </html>
 </x-app-layout>

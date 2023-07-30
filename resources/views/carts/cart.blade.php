@@ -9,30 +9,25 @@
             <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@700&display=swap" rel="stylesheet">
         </head>
         <body>
-            <h1 class="name">
-                {{ Auth::user()->name }}様のカート
-            </h1>
-            <div class="content">
-                @foreach($carts as $cart)
-                    <div class="content_name">
-                        <h2>商品名</h2>
-                        <p>{{ $cart->item->name }}</p>
+            <h1 class="text-3xl font-bold mt-10 text-center">{{ Auth::user()->name }}様のカート</h1>
+            @foreach($carts as $cart)
+                <section class="text-gray-600 flex body-font overflow-hidden">
+                    <div class="container px-2 flex border-b-2 border-gray-400 py-12 mx-auto">
+                        <div class="divide-y-2 divide-gray-100">
+                            <div class="py-2 flex flex-wrap md:flex-nowrap">
+                                <div class="md:w-32 md:mb-0 mb-2 flex-shrink-0 flex flex-col">
+                                    <img src="{{ $cart->item->ItemImage->url }}" alt="画像が読み込めません"/>
+                                </div>
+                                <div class="md:flex-grow">
+                                    <h2 class="text-2xl ml-12 font-bold text-gray-900 title-font mb-2">{{ $cart->item->name }}</h2>
+                                    <p class="text-xl font-bold leading-relaxed ml-12">価格：{{ $cart->item->price }}円</p>
+                                    <p class="text-xl font-bold leading-relaxed ml-12">個数：{{ $cart->num }}個</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="content__body">
-                        <h3>内容</h3>
-                        <p>{{ $cart->item->title }}</p>    
-                    </div>
-                    <div class="contet_price">
-                        <h3>価格</h3>
-                        <p>{{ $cart->item->price }}円</p>
-                    </div>
-                    <div class="content_num)">
-                        <h3>注文数</3>
-                        <p>{{ $cart->num }}</p>
-                    </div>
-                    <img src="{{ $cart->item->ItemImage->url }}" alt="画像が読み込めません"/>
-                @endforeach
-            </div>
+                </section>
+            @endforeach
         </body>
     </html>
 </x-app-layout>
