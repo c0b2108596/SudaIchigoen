@@ -20,7 +20,7 @@
                         </div>
                         <div class="sm:col-span-2">
                             <label for="message" class="text-xl mb-2 inline-block text-bold text-sm sm:text-base">カテゴリー</label>
-                            <select name="post[category_id]" class="text-gray-50">
+                            <select name="post[category_id]" class="text-black">
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
