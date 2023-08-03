@@ -11,7 +11,7 @@
         <body>
             <h1 class="text-3xl font-bold my-10 text-center">須田いちご園マップ</h1>
             <div class="flex">
-                <div class="pl-10 w-1/2 h-[500px]" id="map"></div>
+                <div class="pl-10 w-1/2 mb:w-full h-[500px]" id="map"></div>
                 <script>
                 function initMap() {
                 map = document.getElementById("map");
