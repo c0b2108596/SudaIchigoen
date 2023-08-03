@@ -34,7 +34,7 @@
 
 ##  データ構成
 <b>「テーブル構成・リレーション」</b><br>
-<img src="https://github.com/c0b2108596/SudaIchigoen/assets/85694080/413735ba-f580-49a5-8f20-9cdc04693d02" width="450">
+<img src="https://github.com/c0b2108596/SudaIchigoen/assets/85694080/591300fb-8fee-416a-a4d9-e3a20380c5b7" width="450">
 
 ##  機能
 - CRUD
@@ -50,10 +50,10 @@
 ##  こだわり
 <b>「直売所の場所が分かりにくい」という実際の意見から生まれたマップ機能</b><br>
 Google Maps APIとの外部API連携を用いてマップを表示させています。<br><br>
-<img src="https://github.com/c0b2108596/SudaIchigoen/assets/85694080/29343fca-632f-4d13-b0c6-c8a738a11928" width="225"><br>
+<img src="https://github.com/c0b2108596/SudaIchigoen/assets/85694080/29343fca-632f-4d13-b0c6-c8a738a11928" width="450"><br>
 <b>画像の複数投稿</b><br>
 リレーションによって1つの投稿に複数の画像を追加できるように工夫しました。<br><br>
-<img src="https://github.com/c0b2108596/SudaIchigoen/assets/85694080/25406776-8b8a-4ef6-9d3b-1d1e22057106" width="225">
+<img src="https://github.com/c0b2108596/SudaIchigoen/assets/85694080/25406776-8b8a-4ef6-9d3b-1d1e22057106" width="450">
 
 ##  今後の計画
 - 注文機能(カートに実際に追加された商品）
