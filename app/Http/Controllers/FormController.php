@@ -17,9 +17,9 @@ class FormController extends Controller
     
     public function store(FormsRequest $request, Form $form, User $user) //フォームの内容を保存する
     {
-        $input = $request['form'];
-        $input += ['user_id' => $request->user()->id];
-        $form->fill($input)->save();
+        $input = $request['form']; //取得したフォームの内容を変数に定義
+        $input += ['user_id' => $request->user()->id]; //変数にuserの情報を追加
+        $form->fill($input)->save(); //formsテーブルに保存
         
         return redirect('/forms/form');
     }
@@ -27,7 +27,7 @@ class FormController extends Controller
     
     public function index(Form $form) //送られたフォームを見る(管理者用)
     {
-        //Gate::authorize('admin');
+        Gate::authorize('admin'); //authorizeによるアクセス制限
         
         return view('forms.index')->with(['forms' => $form->getPaginateByLimit()]);
     }

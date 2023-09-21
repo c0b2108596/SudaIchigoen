@@ -7,7 +7,7 @@ use App\Models\Post;
 
 class HomeController extends Controller
 {
-    public function home(Post $post)
+    public function home(Post $post) //ホーム画面のお知らせのを表示する
     {   
         return view('home')->with(['posts'=>$post->getByLimit()]);
     }

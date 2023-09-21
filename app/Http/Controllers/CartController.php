@@ -15,16 +15,16 @@ class CartController extends Controller
 {
     public function add_cart(Request $request, Cart $cart, Item $item) //カートに商品を追加する(カートに追加ボタンを押された時の処理)
     {
-        $user_id = auth()->user()->id;
-        $item_id = $request->id;
-        $item_stock = Item::where("id", "=", $item_id)->first();
-        $cart_content = Cart::where("user_id", "=", $user_id)->where("item_id", "=", $item_id)->first();
+        $user_id = auth()->user()->id; //ユーザーのidを取得し、定義する
+        $item_id = $request->id; //商品のidを取得し、定義する
+        $item_stock = Item::where("id", "=", $item_id)->first(); //カートに入っている商品の在庫数を取得し、定義する
+        $cart_content = Cart::where("user_id", "=", $user_id)->where("item_id", "=", $item_id)->first(); //ユーザーごとのカートの表示
         
         if ($cart_content === null) //カートの中身がなければidと個数を1に設定
         {   
-            $cart->user_id=$user_id;
-            $cart->item_id=$item_id;
-            $cart->num=1;
+            $cart->user_id=$user_id; //カートごとのユーザーidを設定
+            $cart->item_id=$item_id; //カートに商品を設定
+            $cart->num=1; //カートの
             $item_stock->stock-=1;
             $cart->save();
             $item_stock->save();
