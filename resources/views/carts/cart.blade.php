@@ -10,7 +10,7 @@
         </head>
         <body>
             <h1 class="text-3xl font-bold mt-10 text-center">{{ Auth::user()->name }}様のカート</h1>
-            @foreach($carts as $cart)
+            @foreach($data['my_carts'] as $cart)
                 <section class="text-gray-600 flex body-font overflow-hidden">
                     <div class="container px-2 flex border-b-2 border-gray-400 py-12 mx-auto">
                         <div class="divide-y-2 divide-gray-100">
@@ -28,6 +28,18 @@
                     </div>
                 </section>
             @endforeach
+            <div>
+                <p>合計商品数：{{ $data['count'] }}個</p>
+                <p>合計金額：{{ $data['sum'] }}円</p>
+            </div>
+            <div>
+                <form class="mx-auto grid max-w-screen-md gap-4 text-bold sm:grid-cols-2" action="/purchase" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name='id' value="{{ Auth::user()->id }}">
+                    <input type="hidden" name='sum' value="{{ $data["sum"] }}">
+                    <button type="submit">購入</button>
+                </form>
+            </div>
         </body>
     </html>
 </x-app-layout>
