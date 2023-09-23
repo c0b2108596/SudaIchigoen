@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CashController;
 use App\Http\Controllers\Controller;
 
 Route::get('/dashboard', function (){
@@ -52,6 +53,7 @@ Route::get('/items/{item}', [ItemController::class, 'show'])->name('item_show');
 
 /*カート機能(ログイン時のみ)*/
 Route::controller(CartController::class)->middleware(['auth'])->group(function(){
+    Route::post('/purchase', 'purchase')->name('cart_purchase');
     Route::get('/carts/{user}/show', 'show')->name('show_cart'); //ユーザー毎のカートの中身のビュー
     Route::post('/items/addcart', "add_cart")->name("add_cart"); //カートへの商品追加
 });
@@ -67,6 +69,12 @@ Route::controller(EventController::class)->middleware(["auth"])->group(function(
 
 /*マップ機能*/
 Route::get('/map', [Controller::class,'googlemap'])->name('map'); //マップ画面のビュー
+
+/*決済機能*/
+Route::controller(CashController::class)->group(function(){
+    Route::post('/cash/store', 'store')->name('cash.store');
+    Route::get('/cash/create/{order}', 'create')->name('cash.create');
+});
 
 /*プロフィール機能*/
 Route::middleware('auth')->group(function () {

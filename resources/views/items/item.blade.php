@@ -14,7 +14,7 @@
                 <button type="button" class="ml-2 py-2 px-3 items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" onclick="location.href='/items/create'">商品を追加</button>
             @endcan
                 @foreach ($items as $item)
-                    <section class="text-gray-600 flex body-font overflow-hidden">
+                    <section class="block text-gray-600 body-font overflow-hidden">
                         <div class="container px-2 flex border-b-2 border-gray-400 py-12 mx-auto">
                             <div class="divide-y-2 divide-gray-100">
                                 <div class="py-2 flex flex-wrap md:flex-nowrap">

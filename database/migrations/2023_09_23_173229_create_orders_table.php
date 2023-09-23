@@ -13,7 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('item_images', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId("user_id")->constrained();
+            $table->integer("price");
             $table->timestamps();
         });
     }
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('item_images', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('orders');
     }
 };
