@@ -15,7 +15,7 @@
                     <div class="container px-2 flex border-b-2 border-gray-400 py-12 mx-auto">
                         <div class="divide-y-2 divide-gray-100">
                             <div class="py-2 flex flex-wrap md:flex-nowrap">
-                                <div class="md:w-32 md:mb-0 mb-2 flex-shrink-0 flex flex-col">
+                                <div class="mx-2 md:w-32 md:mb-0 mb-2 flex-shrink-0 flex flex-col">
                                     <img src="{{ $cart->item->ItemImage->url }}" alt="画像が読み込めません"/>
                                 </div>
                                 <div class="md:flex-grow">
@@ -29,15 +29,15 @@
                 </section>
             @endforeach
             <div>
-                <p>合計商品数：{{ $data['count'] }}個</p>
-                <p>合計金額：{{ $data['sum'] }}円</p>
+                <p class="text-3xl my-2 font-bold text-gray-900 title-font text-center">商品数：{{ $data['count'] }}個</p>
+                <p class="text-3xl my-2 font-bold text-gray-900 title-font text-center">金額：{{ $data['sum'] }}円</p>
             </div>
-            <div>
-                <form class="mx-auto grid max-w-screen-md gap-4 text-bold sm:grid-cols-2" action="/purchase" method="POST" enctype="multipart/form-data">
+            <div class="flex justify-center">
+                <form class="text-bold sm:grid-cols-2" action="/purchase" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name='id' value="{{ Auth::user()->id }}">
                     <input type="hidden" name='sum' value="{{ $data["sum"] }}">
-                    <button type="submit">購入</button>
+                    <button type="submit" class="text-2xl py-2 px-3 items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">購入する</button>
                 </form>
             </div>
         </body>
