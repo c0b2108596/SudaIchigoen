@@ -33,7 +33,7 @@
 
 ##  データ構成
 <b>「テーブル構成・リレーション」</b><br>
-<img src="https://github.com/c0b2108596/SudaIchigoen/assets/85694080/591300fb-8fee-416a-a4d9-e3a20380c5b7" width="450">
+<img src="https://github.com/c0b2108596/SudaIchigoen/assets/85694080/11ea8bcf-15b9-4530-91f8-c4e0b167862a" width="450">
 
 ##  機能
 - CRUD
@@ -45,6 +45,7 @@
 - お問い合わせ
 - カート
 - カテゴリー
+- 注文機能(Stipe API：テスト環境)
 
 ##  こだわり
 <b>「直売所の場所が分かりにくい」という実際の意見から生まれたマップ機能</b><br>
@@ -55,7 +56,6 @@ Google Maps APIとの外部API連携を用いてマップを表示させてい�
 <img src="https://github.com/c0b2108596/SudaIchigoen/assets/85694080/29343fca-632f-4d13-b0c6-c8a738a11928" width="450">
 
 ##  今後の計画
-- 注文機能(カートに実際に追加された商品）
 - 商品評価（いいね）とそれによる投稿並び替え
 - ページの読み込み速度の向上
 - 投稿の文字検索
