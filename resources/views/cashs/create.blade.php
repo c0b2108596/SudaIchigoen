@@ -7,13 +7,9 @@
                 {{ session('status') }}
             </div>
         @endif
-        <div>
-            <p>{{ $order->user->name }}さん</p>
-            <p>お支払い金額{{ $order->price }}円</p>
-        </div>
         <div class="p-5">
             <div class="col-6 card">
-                <div class="card-header">Stripe決済</div>
+                <div class="card-header">カード決済</div>
                 <div class="card-body">
                     <form id="card-form" action="{{ route('cash.store') }}" method="POST">
                         @csrf
@@ -40,6 +36,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+        <h1 class="text-xl font-bold mt-10 text-center">名前：{{ $order->user->name }}さん</p>
+        <p class="text-xl mt-auto text-center">お支払い金額：{{ $order->price }}円</p>
     </div>
 
     <script src="https://js.stripe.com/v3/"></script>
