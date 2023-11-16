@@ -24,8 +24,7 @@
 - Laravel(ver.9)
 
 <b>環境：</b><br>
-- AWS(EC2＋Cloud9)
-- MySQL(MariaDB)
+- AWS(Cloud9)
 - Github
 
 <b>デプロイ：</b><br>
